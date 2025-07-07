@@ -1,0 +1,556 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  }
+}
+
+@layer components {
+  .card-hover {
+    @apply hover:shadow-2xl hover:-translate-y-2 transition-all duration-500;
+  }
+  
+  /* Enhanced Header Navigation Styles */
+  .nav-header {
+    @apply bg-white/80 backdrop-blur-xl border-b border-white/20 shadow-lg;
+  }
+  
+  .logo-container {
+    @apply flex items-center;
+  }
+  
+  .logo-divider {
+    @apply w-px bg-gradient-to-b from-transparent via-gray-300 to-transparent mx-6;
+    height: 32px;
+  }
+  
+  /* Enhanced Logo Animations */
+  .logo-entrance {
+    animation: logoSlideIn 1s ease-out forwards;
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  
+  .logo-entrance-delayed {
+    animation: logoSlideIn 1s ease-out 0.3s forwards;
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  
+  /* Hero Section Animations */
+  .hero-icon-entrance {
+    animation: heroIconEntrance 1.2s ease-out 0.5s forwards;
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  
+  .hero-title-entrance {
+    animation: heroTitleEntrance 1.5s ease-out 0.8s forwards;
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  
+  .hero-subtitle-entrance {
+    animation: heroSubtitleEntrance 1.2s ease-out 1.2s forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  .stats-card-entrance {
+    animation: statsCardEntrance 1s ease-out 1.5s forwards;
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  
+  /* Power BI Section Animations */
+  .powerbi-icon-entrance {
+    animation: powerbIIconEntrance 1.2s ease-out 0.3s forwards;
+    opacity: 0;
+    transform: scale(0.8) rotate(-10deg);
+  }
+  
+  .powerbi-title-entrance {
+    animation: powerbITitleEntrance 1.5s ease-out 0.6s forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  .powerbi-subtitle-entrance {
+    animation: powerbISubtitleEntrance 1.2s ease-out 0.9s forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .powerbi-feature-card {
+    animation: powerbIFeatureCard 1s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  
+  .powerbi-cta-entrance {
+    animation: powerbICTAEntrance 1.2s ease-out 1.8s forwards;
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+  }
+  
+  /* Responsive Logo Adjustments */
+  @media (max-width: 640px) {
+    .logo-divider {
+      @apply hidden;
+    }
+    
+    .logo-container {
+      @apply gap-4;
+    }
+  }
+  
+  /* Logo Hover Effects */
+  .logo-hover {
+    @apply transition-all duration-300 hover:scale-105;
+  }
+
+  /* Updated Tag Badge Styles */
+  .category-tag {
+    @apply flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium text-white shadow-lg backdrop-blur-sm;
+    z-index: 20;
+  }
+
+  /* Improved Medal and Rank Positioning */
+  .leaderboard-medal {
+    @apply absolute top-4 right-4 z-20 w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-lg border-4 bg-white;
+  }
+
+  .leaderboard-rank {
+    @apply absolute top-24 right-6 z-20 w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg;
+  }
+
+  /* Medal Glow Effects */
+  .gold-glow {
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4), 0 0 20px rgba(255, 215, 0, 0.3);
+  }
+
+  .silver-glow {
+    box-shadow: 0 8px 25px rgba(192, 192, 192, 0.4), 0 0 20px rgba(192, 192, 192, 0.3);
+  }
+
+  .bronze-glow {
+    box-shadow: 0 8px 25px rgba(205, 127, 50, 0.4), 0 0 20px rgba(205, 127, 50, 0.3);
+  }
+
+  /* Leaderboard Section Styles */
+  .leaderboard-section {
+    @apply relative rounded-3xl overflow-hidden;
+  }
+
+  .leaderboard-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
+    gap: 24px; /* Consistent 24px spacing */
+  }
+
+  /* Performance Summary Styles */
+  .performance-summary {
+    @apply bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg;
+  }
+
+  /* Responsive Grid Adjustments */
+  @media (min-width: 768px) {
+    .leaderboard-grid {
+      gap: 32px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .leaderboard-grid {
+      gap: 24px;
+      max-width: 1152px; /* 72rem */
+      margin: 0 auto;
+    }
+  }
+
+  /* Mobile Optimizations */
+  @media (max-width: 640px) {
+    .leaderboard-card {
+      max-width: 100%;
+      min-height: 420px;
+    }
+    
+    .leaderboard-section {
+      padding: 1.5rem;
+    }
+
+    /* Mobile Tag Adjustments */
+    .category-tag {
+      @apply px-2 py-1 text-xs;
+    }
+
+    .leaderboard-medal {
+      @apply w-12 h-12 text-2xl;
+    }
+
+    .leaderboard-rank {
+      @apply w-8 h-8 text-sm top-20 right-8;
+    }
+  }
+
+  /* Tablet Optimizations */
+  @media (min-width: 641px) and (max-width: 1023px) {
+    .category-tag {
+      @apply px-3 py-2 text-sm;
+    }
+  }
+}
+
+/* Enhanced Keyframe Animations */
+@keyframes logoSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes heroIconEntrance {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes heroTitleEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroSubtitleEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes statsCardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes powerbIIconEntrance {
+  from {
+    opacity: 0;
+    transform: scale(0.8) rotate(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes powerbITitleEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes powerbISubtitleEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes powerbIFeatureCard {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes powerbICTAEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes medalGlow {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes float-delayed {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.1;
+  }
+}
+
+.animate-slideInUp {
+  animation: slideInUp 0.8s ease-out forwards;
+}
+
+.animate-fadeInScale {
+  animation: fadeInScale 1s ease-out forwards;
+}
+
+.animate-medalGlow {
+  animation: medalGlow 2s ease-in-out infinite;
+}
+
+.animate-pulseGlow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 8s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+/* Custom Header Styles */
+.header-glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Logo Alignment Utilities */
+.logo-exact-height {
+  height: 48px !important;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Responsive Breakpoints for Header */
+@media (min-width: 768px) {
+  .header-desktop {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header-desktop {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Mobile Header Adjustments */
+@media (max-width: 640px) {
+  .mobile-header {
+    padding: 1rem;
+  }
+  
+  .mobile-logo-spacing {
+    gap: 1rem;
+  }
+}
+
+/* Enhanced Shadow Effects */
+.shadow-3xl {
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25), 0 0 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading States */
+.loading-shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+  .animate-slideInUp,
+  .animate-fadeInScale,
+  .animate-medalGlow,
+  .animate-pulseGlow,
+  .animate-float,
+  .animate-float-delayed,
+  .animate-pulse-slow,
+  .logo-entrance,
+  .logo-entrance-delayed,
+  .hero-icon-entrance,
+  .hero-title-entrance,
+  .hero-subtitle-entrance,
+  .stats-card-entrance,
+  .powerbi-icon-entrance,
+  .powerbi-title-entrance,
+  .powerbi-subtitle-entrance,
+  .powerbi-feature-card,
+  .powerbi-cta-entrance {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  
+  .card-hover,
+  .leaderboard-card {
+    transition: none;
+  }
+}
+
+/* Focus States for Accessibility */
+.leaderboard-card:focus-within {
+  outline: 2px solid #3B82F6;
+  outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .leaderboard-card {
+    border: 2px solid #000;
+  }
+  
+  .gold-glow,
+  .silver-glow,
+  .bronze-glow {
+    box-shadow: none;
+    border: 3px solid currentColor;
+  }
+
+  .category-tag {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Color Variables for Consistency */
+:root {
+  --gold: #FFD700;
+  --silver: #C0C0C0;
+  --bronze: #CD7F32;
+  --tickets-primary: #3B82F6;
+  --tickets-accent: #1E40AF;
+  --calls-primary: #10B981;
+  --calls-accent: #047857;
+}
+
+/* Print Styles */
+@media print {
+  .leaderboard-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+  
+  .animate-slideInUp,
+  .animate-fadeInScale,
+  .animate-medalGlow {
+    animation: none;
+  }
+}
