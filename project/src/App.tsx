@@ -80,7 +80,7 @@ function App() {
               {/* Main Logo */}
               <div className="flex-shrink-0 logo-entrance">
                 <img 
-                  src="/public/WhatsApp Image 2025-07-07 at 15.57.36_746599eb.jpg" 
+                       src="/WhatsApp Image 2025-07-07 at 15.57.36_746599eb.jpg"
                   alt="Company Logo" 
                   className="h-12 w-auto object-contain transition-all duration-300 hover:scale-105 filter drop-shadow-sm"
                   onError={(e) => {
@@ -96,7 +96,7 @@ function App() {
               {/* Secondary Logo */}
               <div className="flex-shrink-0 logo-entrance-delayed">
                 <img 
-                  src="/public/Image.jpeg" 
+                  src="/Image.jpeg"
                   alt="Brand Logo" 
                   className="h-12 w-auto object-contain transition-all duration-300 hover:scale-105 filter drop-shadow-sm"
                   onError={(e) => {
